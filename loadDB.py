@@ -28,7 +28,6 @@ class Player(Base):
     username = Column('username', String(50))
     result = Column('result', String(50))
     race = Column('race', String(50))
-    discordName = Column('discordName', String(200))
     teamId = Column('teamId', Integer, ForeignKey(Team.id))
 
 engine = create_engine('sqlite:///sc2db.db', echo=False)
@@ -70,7 +69,6 @@ for f in os.listdir("sc2Replays"):
     z = 0
     for player in n1['m_playerList']:
         tid = player['m_teamId']
-        
         fPlayer = fPlayerList[z]#this gets player from earlier iteration of the players in JSON 
         print fPlayer
         print player
